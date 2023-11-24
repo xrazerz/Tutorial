@@ -11,19 +11,19 @@
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
-        <a href="/index.html">Register</a>
+        <a href="../">Register</a>
     </div>
     
     <div class="login-container">
         <h2>Login</h2>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <form id="loginForm" method="post" action="../php/login.php">
+            <label for="username">email:</label>
+            <input type="text"  name="email" required>
     
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
     
-            <button type="button" onclick="login()">Login</button>
+            <button type="submit" >Login</button>
         </form>
     </div>
     
