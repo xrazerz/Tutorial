@@ -21,10 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($row["password"] ==$password ) {
                 // Password is correct, start a new session
                 $_SESSION['user_id'] = $row['id'];
-                $_SESSION['username'] = $row['name'];
-
+                $_SESSION['username'] = $row['username'];
+                $prem='SELECT `user_permision` FROM `user_permision` WHERE `user_id` ='.$row['id'].'';
+                $p = mysqli_fetch_assoc(mysqli_query($conn, $prem));
+                $_SESSION['user_permision'] = $p['user_permision'];
                 // Redirect to a logged-in page
-                header("Location: ../dashboard/dashboard.php");
+                header("Location: ../home/home.html");
                 exit(); // Important: Always exit after a header redirect
             } else {
                 echo "Incorrect password";
